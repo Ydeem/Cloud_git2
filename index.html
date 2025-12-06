@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Employee Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Employee Manager</h1>
+      <p>Employee Records Dashboard</p>
+    </header>
+
+    <main class="app-main">
+      <!-- Add Employee -->
+      <section class="card card-primary">
+        <h2>Add Employee</h2>
+        <form id="addEmployeeForm" class="form">
+          <div class="form-group">
+            <label for="addEmployeeId">Employee ID</label>
+            <input type="text" id="addEmployeeId" required />
+          </div>
+          <div class="form-group">
+            <label for="addEmployeeName">Name</label>
+            <input type="text" id="addEmployeeName" required />
+          </div>
+          <div class="form-group">
+            <label for="addEmployeeDept">Department</label>
+            <input type="text" id="addEmployeeDept" />
+          </div>
+          <div class="form-group">
+            <label for="addEmployeeRole">Role</label>
+            <input type="text" id="addEmployeeRole" />
+          </div>
+          <button type="submit" class="btn btn-primary">Add Employee</button>
+        </form>
+      </section>
+
+      <!-- Get One Employee -->
+      <section class="card card-info">
+        <h2>Get Employee by ID</h2>
+        <form id="getEmployeeForm" class="form">
+          <div class="form-group">
+            <label for="getEmployeeId">Employee ID</label>
+            <input type="text" id="getEmployeeId" required />
+          </div>
+          <button type="submit" class="btn btn-info">Get Employee</button>
+        </form>
+      </section>
+
+      <!-- Get All Employees -->
+      <section class="card card-success">
+        <h2>Get All Employees</h2>
+        <p class="card-subtitle">Retrieve a full list of employees.</p>
+        <button id="getAllEmployeesBtn" class="btn btn-success">Get All</button>
+      </section>
+
+      <!-- Update Employee -->
+      <section class="card card-warning">
+        <h2>Update Employee</h2>
+        <form id="updateEmployeeForm" class="form">
+          <div class="form-group">
+            <label for="updateEmployeeId">Employee ID</label>
+            <input type="text" id="updateEmployeeId" required />
+          </div>
+          <div class="form-group">
+            <label for="updateKey">Field to Update (updateKey)</label>
+            <input type="text" id="updateKey" placeholder="e.g. name, department, role" required />
+          </div>
+          <div class="form-group">
+            <label for="updateValue">New Value (updateValue)</label>
+            <input type="text" id="updateValue" required />
+          </div>
+          <button type="submit" class="btn btn-warning">Update Employee</button>
+        </form>
+      </section>
+
+      <!-- Delete Employee -->
+      <section class="card card-danger-card">
+        <h2>Delete Employee</h2>
+        <form id="deleteEmployeeForm" class="form">
+          <div class="form-group">
+            <label for="deleteEmployeeId">Employee ID</label>
+            <input type="text" id="deleteEmployeeId" required />
+          </div>
+          <button type="submit" class="btn btn-danger">Delete Employee</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Toast notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
