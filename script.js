@@ -47,105 +47,125 @@ function handleError(action, err) {
 }
 
 // Add Employee (POST /employee)
-document.getElementById("addEmployeeForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+document
+  .getElementById("addEmployeeForm")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const employee_id = document.getElementById("addEmployeeId").value.trim();
-  const name = document.getElementById("addEmployeeName").value.trim();
-  const department = document.getElementById("addEmployeeDept").value.trim();
-  const role = document.getElementById("addEmployeeRole").value.trim();
+    const employee_id = document
+      .getElementById("addEmployeeId")
+      .value.trim();
+    const name = document.getElementById("addEmployeeName").value.trim();
+    const department = document
+      .getElementById("addEmployeeDept")
+      .value.trim();
+    const role = document.getElementById("addEmployeeRole").value.trim();
 
-  const body = { employee_id, name };
-  if (department) body.department = department;
-  if (role) body.role = role;
+    const body = { employee_id, name };
+    if (department) body.department = department;
+    if (role) body.role = role;
 
-  try {
-    const res = await fetch(`${API_BASE_URL}/employee`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    const data = await res.json();
-    handleSuccess("Add Employee", res, data);
-  } catch (err) {
-    handleError("Add Employee", err);
-  }
-});
+    try {
+      const res = await fetch(`${API_BASE_URL}/employee`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json();
+      handleSuccess("Add Employee", res, data);
+    } catch (err) {
+      handleError("Add Employee", err);
+    }
+  });
 
 // Get One Employee (GET /employee?employee_id=ID)
-document.getElementById("getEmployeeForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+document
+  .getElementById("getEmployeeForm")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const employee_id = document.getElementById("getEmployeeId").value.trim();
-  if (!employee_id) return;
+    const employee_id = document
+      .getElementById("getEmployeeId")
+      .value.trim();
+    if (!employee_id) return;
 
-  const url = `${API_BASE_URL}/employee?employee_id=${encodeURIComponent(employee_id)}`;
+    const url = `${API_BASE_URL}/employee?employee_id=${encodeURIComponent(
+      employee_id
+    )}`;
 
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    handleSuccess("Get Employee", res, data);
-  } catch (err) {
-    handleError("Get Employee", err);
-  }
-});
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      handleSuccess("Get Employee", res, data);
+    } catch (err) {
+      handleError("Get Employee", err);
+    }
+  });
 
 // Get All Employees (GET /employees)
-document.getElementById("getAllEmployeesBtn").addEventListener("click", async () => {
-  try {
-    const res = await fetch(`${API_BASE_URL}/employees`);
-    const data = await res.json();
-    handleSuccess("Get All Employees", res, data);
-  } catch (err) {
-    handleError("Get All Employees", err);
-  }
-});
+document
+  .getElementById("getAllEmployeesBtn")
+  .addEventListener("click", async () => {
+    try {
+      const res = await fetch(`${API_BASE_URL}/employees`);
+      const data = await res.json();
+      handleSuccess("Get All Employees", res, data);
+    } catch (err) {
+      handleError("Get All Employees", err);
+    }
+  });
 
 // Update Employee (PATCH /employee)
-document.getElementById("updateEmployeeForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+document
+  .getElementById("updateEmployeeForm")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const employee_id = document.getElementById("updateEmployeeId").value.trim();
-  const updateKey = document.getElementById("updateKey").value.trim();
-  const updateValue = document.getElementById("updateValue").value.trim();
+    const employee_id = document
+      .getElementById("updateEmployeeId")
+      .value.trim();
+    const updateKey = document.getElementById("updateKey").value.trim();
+    const updateValue = document.getElementById("updateValue").value.trim();
 
-  if (!employee_id || !updateKey) return;
+    if (!employee_id || !updateKey) return;
 
-  const body = { employee_id, updateKey, updateValue };
+    const body = { employee_id, updateKey, updateValue };
 
-  try {
-    const res = await fetch(`${API_BASE_URL}/employee`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    const data = await res.json();
-    handleSuccess("Update Employee", res, data);
-  } catch (err) {
-    handleError("Update Employee", err);
-  }
-});
+    try {
+      const res = await fetch(`${API_BASE_URL}/employee`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json();
+      handleSuccess("Update Employee", res, data);
+    } catch (err) {
+      handleError("Update Employee", err);
+    }
+  });
 
 // Delete Employee (DELETE /employee)
-document.getElementById("deleteEmployeeForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+document
+  .getElementById("deleteEmployeeForm")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const employee_id = document.getElementById("deleteEmployeeId").value.trim();
-  if (!employee_id) return;
+    const employee_id = document
+      .getElementById("deleteEmployeeId")
+      .value.trim();
+    if (!employee_id) return;
 
-  const body = { employee_id };
+    const body = { employee_id };
 
-  try {
-    const res = await fetch(`${API_BASE_URL}/employee`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    const data = await res.json();
-    handleSuccess("Delete Employee", res, data);
-  } catch (err) {
-    handleError("Delete Employee", err);
-  }
-});
-
-
+    try {
+      const res = await fetch(`${API_BASE_URL}/employee`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json();
+      handleSuccess("Delete Employee", res, data);
+    } catch (err) {
+      handleError("Delete Employee", err);
+    }
+  });
