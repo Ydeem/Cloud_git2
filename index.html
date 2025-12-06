@@ -67,7 +67,12 @@
           </div>
           <div class="form-group">
             <label for="updateKey">Field to Update (updateKey)</label>
-            <input type="text" id="updateKey" placeholder="e.g. name, department, role" required />
+            <input
+              type="text"
+              id="updateKey"
+              placeholder="e.g. name, department, role"
+              required
+            />
           </div>
           <div class="form-group">
             <label for="updateValue">New Value (updateValue)</label>
@@ -89,6 +94,17 @@
         </form>
       </section>
     </main>
+
+    <!-- Results / View Data -->
+    <section class="card full-width">
+      <h2>Results</h2>
+      <p id="resultsHint" class="card-subtitle">
+        Last operation result will appear here.
+      </p>
+      <div id="resultsContent" class="results-content">
+        No data yet.
+      </div>
+    </section>
 
     <!-- Toast notifications -->
     <div id="toastContainer" class="toast-container"></div>
