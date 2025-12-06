@@ -1,5 +1,5 @@
 // ========= CONFIG =========
-const API_BASE_URL = "https://your-api-id.execute-api.your-region.amazonaws.com/prod";
+const API_BASE_URL = "https://5eeivz2isa.execute-api.us-east-1.amazonaws.com/test";
 // ==========================
 
 const toastContainer = document.getElementById("toastContainer");
@@ -147,3 +147,4 @@ document.getElementById("deleteEmployeeForm").addEventListener("submit", async (
     handleError("Delete Employee", err);
   }
 });
+
